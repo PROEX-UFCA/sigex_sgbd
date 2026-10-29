@@ -13,13 +13,23 @@
         </p>
       </div>
 
-      <form method="POST" action="{{ route('sincronizacoes.iniciar') }}">
-        @csrf
-        <button type="submit" class="btn btn-primary" id="btnSincronizar">
-          <i class="fas fa-sync-alt"></i>
-          Sincronizar
-        </button>
-      </form>
+      <div class="d-flex gap-1">
+        <form method="POST" action="{{ route('sincronizacoes.sigex') }}">
+          @csrf
+          <button type="submit" class="btn btn-azure">
+            <i class="fas fa-sync-alt"></i>
+            Sincronizar (SIGEX)
+          </button>
+        </form>
+  
+        <form method="POST" action="{{ route('sincronizacoes.iniciar') }}">
+          @csrf
+          <button type="submit" class="btn btn-primary" id="btnSincronizar">
+            <i class="fas fa-sync-alt"></i>
+            Sincronizar (SIGAA)
+          </button>
+        </form>
+      </div>
     </div>
 
     <div id="listaSincronizacoes" class="row g-3">
@@ -116,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
           botao.disabled = ativos;
           botao.innerHTML = ativos
               ? '<span class="spinner-border spinner-border-sm me-1"></span> Sincronizando...'
-              : '<i class="fas fa-sync-alt"></i> Sincronizar';
+              : '<i class="fas fa-sync-alt"></i> Sincronizar (SIGAA)';
 
           lista.replaceChildren();
 

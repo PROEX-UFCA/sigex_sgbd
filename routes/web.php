@@ -4,6 +4,7 @@ use App\Http\Controllers\Web\Auth\LoginController;
 use App\Http\Controllers\Web\Settings\ProfileController;
 use App\Http\Controllers\Web\Settings\RolesController;
 use App\Http\Controllers\Web\Settings\UsersController;
+use App\Http\Controllers\Web\Sgbd\PostController;
 use App\Http\Controllers\Web\Sgbd\Sigex\AcaoController;
 use App\Http\Controllers\Web\Sgbd\Sigex\LocalidadeController;
 use App\Http\Controllers\Web\Sgbd\Sigex\MembroController;
@@ -61,6 +62,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('sincronizacoes', [SincronizacaoController::class, 'index'])->name('sincronizacoes.index');
 
     Route::post('sincronizacoes/iniciar', [SincronizacaoController::class, 'iniciar'])->name('sincronizacoes.iniciar');
-
+    
     Route::get('sincronizacoes/status', [SincronizacaoController::class, 'status'])->name('sincronizacoes.status');
+
+    Route::post('sincronizacoes/sigex/iniciar', [PostController::class, 'iniciarSigex'])->name('sincronizacoes.sigex');
 });

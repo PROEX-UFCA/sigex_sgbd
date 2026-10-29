@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web\Sgbd;
 use App\Http\Controllers\Controller;
 use App\Jobs\Sgbd\ExecutarSincronizacaoJob;
 use App\Models\Sincronizacao;
+use App\Services\ApiService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
